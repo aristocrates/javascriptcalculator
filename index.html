@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Javascript Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="display">
+    </div>
+    <div class="maintable">
+      <div class="maintablerow">
+	<div class="buttontable">
+	  <div class="buttonrow">
+	    <div class="num" id="1" onclick="javascript:buttonclick(1);">1</div>
+	    <div class="num" id="2" onclick="javascript:buttonclick(2);">2</div>
+	    <div class="num" id="3" onclick="javascript:buttonclick(3);">3</div>
+	  </div>
+	  <div class="buttonrow">
+	    <div class="num" id="4" onclick="javascript:buttonclick(4);">4</div>
+	    <div class="num" id="5" onclick="javascript:buttonclick(5);">5</div>
+	    <div class="num" id="6" onclick="javascript:buttonclick(6);">6</div>
+	  </div>
+	  <div class="buttonrow">
+	    <div class="num" id="7" onclick="javascript:buttonclick(7);">7</div>
+	    <div class="num" id="8" onclick="javascript:buttonclick(8);">8</div>
+	    <div class="num" id="9" onclick="javascript:buttonclick(9);">9</div>
+	  </div>
+	</div>
+	<div class="operatortable">
+	  <div class="operatorrow">
+	    <div class="operator" id="+" onclick="javascript:operatorclick('+');">
+	      +
+	    </div>
+	    <div class="operator" id="-" onclick="javascript:operatorclick('-');">
+	      -
+	    </div>
+	  </div>
+	  <div class="operatorrow">
+	    <div class="operator" id="x" onclick="javascript:operatorclick('x');">
+	      x
+	    </div>
+	    <div class="operator" id="÷" onclick="javascript:operatorclick('÷');">
+	      ÷
+	    </div>
+	  </div>
+	  <div class="operatorrow">
+	    <div class="operator" id="enter" onclick="javascript:enterclick();">
+	      ↵
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>

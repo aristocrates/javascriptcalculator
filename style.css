@@ -1,0 +1,99 @@
+/*
+Nicholas Meyer
+*/
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+p {
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+div#display {
+    width: 70%;
+    background: #00DD88;
+    border: 2px #00AA88 solid;
+    height: 30%;
+    font-size: 400%;
+    text-align: right;
+    overflow-y: auto;
+}
+
+div.num {
+    width: 20%;
+    height: 30%;
+    background: #0099FF;
+    border: 2px #0077CC solid;
+    display: table-cell;
+    text-align: center;
+    font-size: 400%;
+}
+
+div.operator {
+    width: 20%;
+    height: 30%;
+    font-size: 400%;
+}
+
+div#+ {
+}
+
+span.num {
+    
+}
+
+div.maintable {
+    display: table;
+    width: 70%;
+    height: 100%;
+}
+
+div.maintablerow {
+    display: table-row;
+    width: 100%;
+    height: 100%;
+}
+
+div.operatortable {
+    float: right;
+    width: 20%;
+    display: table;
+    height: 50%;
+    /*display: table-cell;*/
+}
+
+div.buttontable {
+    float: left;
+    width: 80%;
+    display: table;
+    height: 50%;
+    /*display: table-cell;*/
+}
+
+div.buttonrow {
+    display: table-row;
+    height: 30%;
+}
+
+div.operatorrow {
+    display: table-row;
+    /*height: 30%;*/
+    width: 80%;
+}
+
+div.operator {
+    /*width: 10%;*/
+    height: 30%;
+    background: #0099FF;
+    border: 2px #0077CC solid;
+    text-align: center;
+    display: table-cell;
+}
