@@ -28,6 +28,9 @@
 	    <div class="num" id="8" onclick="javascript:buttonclick(8);">8</div>
 	    <div class="num" id="9" onclick="javascript:buttonclick(9);">9</div>
 	  </div>
+	  <div class="buttonrow">
+	    <div class="num" id="0" onclick="javascript:buttonclick(0);">0</div>
+	  </div>
 	</div>
 	<div class="operatortable">
 	  <div class="operatorrow">
@@ -47,8 +50,19 @@
 	    </div>
 	  </div>
 	  <div class="operatorrow">
+	    <div class="operator" id="^" onclick="javascript:pow();">
+	      ^
+	    </div>
+	    <div class="operator" id="ln" onclick="javascript:log();">
+	      ln
+	    </div>
+	  </div>
+	  <div class="operatorrow">
 	    <div class="operator" id="enter" onclick="javascript:enterclick();">
 	      ↵
+	    </div>
+	    <div class="operator" id="backspace" onclick="javascript:backspaceclick();">
+	      ⌫
 	    </div>
 	  </div>
 	</div>
