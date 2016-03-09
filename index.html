@@ -30,6 +30,8 @@
 	  </div>
 	  <div class="buttonrow">
 	    <div class="num" id="0" onclick="javascript:buttonclick(0);">0</div>
+	    <div class="num" id="." onclick="javascript:decimalclick();">.</div>
+	    <div class="operator" id="pop" onclick="javascript:popclick();">🗑</div>
 	  </div>
 	</div>
 	<div class="operatortable">
@@ -50,10 +52,10 @@
 	    </div>
 	  </div>
 	  <div class="operatorrow">
-	    <div class="operator" id="^" onclick="javascript:pow();">
+	    <div class="operator" id="^" onclick="javascript:operatorclick('pow');">
 	      ^
 	    </div>
-	    <div class="operator" id="ln" onclick="javascript:log();">
+	    <div class="operator" id="ln" onclick="javascript:operatorclick('log');">
 	      ln
 	    </div>
 	  </div>
