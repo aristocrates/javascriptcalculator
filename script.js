@@ -221,3 +221,112 @@ pop = function() {
     num_stack.splice(num_stack.length - 1, 1);
     return ans;
 }
+
+// Key listeners
+
+document.addEventListener('keydown', function(event) {
+    if (handle_key_code(event.keyCode))
+    {
+	// if the key was handled, don't have the backspace
+	// make the user leave the page
+	event.preventDefault();
+    }
+});
+
+handle_key_code = function(key_code) {
+    if (!handle_digit(key_code))
+    {
+	return handle_operator(key_code);
+    }
+    return true;
+}
+
+var nums1 = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 110];
+var nums2 = [96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 190];
+handle_digit = function(key_code) {
+    var num = nums1.indexOf(key_code);
+    if (num != -1)
+    {
+	if (num <= 9)
+	{
+	    buttonclick(num);
+	}
+	else
+	{
+	    decimalclick();
+	}
+	return true;
+    }
+    num = nums2.indexOf(key_code);
+    if (num != -1)
+    {
+	if (num <= 9)
+	{
+	    buttonclick(num);
+	}
+	else
+	{
+	    decimalclick();
+	}
+	return true;
+    }
+    return false;
+}
+
+operators1 = [187, 189, 56, 191, 54, 76, 8, 46, 13];
+operators2 = [107, 109, 106, 111, 54, 76, 8, 46, 13];
+// Available operators are +, -, x, ÷, pow, log, backspace, delete, enter
+operatorsDo = ['+', '-', 'x', '÷', 'pow', 'log'];
+handle_operator = function(key_code) {
+    op = operators1.indexOf(key_code);
+    if (op != -1)
+    {
+	if (op <= 5)
+	{
+	    operatorclick(operatorsDo[op]);
+	}
+	else
+	{
+	    switch (op)
+	    {
+		case 6:
+		backspaceclick();
+		break;
+		case 7:
+		popclick();
+		break;
+		case 8:
+		enterclick();
+		break;
+		default:
+	    }
+	}
+	return true;
+    }
+    op = operators2.indexOf(key_code);
+    if (op != -1)
+    {
+	if (op <= 5)
+	{
+	    operatorclick(operatorsDo[op]);
+	}
+	else
+	{
+	    switch (op)
+	    {
+		case 6:
+		backspaceclick();
+		break;
+		case 7:
+		popclick();
+		break;
+		case 8:
+		enterclick();
+		break;
+		default:
+	    }
+	}
+	return true;
+    }
+    return false;
+}
