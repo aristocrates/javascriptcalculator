@@ -32,16 +32,23 @@ warn = function(message, time) {
 display_warning = function(message) {
     warning_str = '<div id="warning">' + message + '</div>';
     show_warning_div(warning_str);
+    update_screen();
 }
 
 remove_warning = function() {
     warning_str = "";
     remove_warning_div();
+    update_screen();
 }
 
 var originalBody = "";
 
+// hackish effort to handle nested warnings
+nested_warnings = 0;
+
 show_warning_div = function(message) {
+    nested_warnings += 1;
+    
     if (originalBody === "")
     {
 	originalBody = document.body.innerHTML;
@@ -51,9 +58,16 @@ show_warning_div = function(message) {
 }
 
 remove_warning_div = function(message) {
+    nested_warnings -= 1;
     //document.getElementById("warningwrapper").innerHTML = "";
     document.body.innerHTML = originalBody;
-    originalBody = "";
+
+    // only set the original body to empty if this is the last
+    // warning
+    if (nested_warnings === 0)
+    {
+	originalBody = "";
+    }
 }
 
 backspaceclick = function() {

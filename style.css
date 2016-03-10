@@ -141,10 +141,6 @@ div.operator {
 	height: 10%;
 	font-size: 200%;
     }
-
-    div#display {
-	font-size: 200%;
-    }
     
     div.buttontable {
 	width: 60%;
@@ -161,7 +157,7 @@ div.operator {
     }
 
     div#display {
-	font-size: 150%;
+	font-size: 250%;
     }
     
     div.buttontable {
@@ -182,6 +178,10 @@ div.operator {
 @media only screen and (max-width: 200px) {
     div.operatortable {
 	font-size: 30%;
+    }
+
+    div#display {
+	font-size: 150%;
     }
 
     div.buttontable {
