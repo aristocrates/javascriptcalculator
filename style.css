@@ -147,9 +147,9 @@ div.operator {
     }    
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 320px) {
     div.operatortable {
-	font-size: 70%;
+	font-size: 35%;
     }
 
     div#warning {
@@ -161,7 +161,7 @@ div.operator {
     }
     
     div.buttontable {
-	font-size: 70%;
+	font-size: 65%;
     }
 }
 
