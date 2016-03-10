@@ -3,8 +3,8 @@ Nicholas Meyer
 */
 
 html {
-    height: 100%;
-    width: 100%;
+    height: 70%;
+    width: 95%;
 }
 
 body {
@@ -50,15 +50,9 @@ div.num {
     width: 20%;
     height: 30%;
     background: #0099FF;
-    border: 2px #0077CC solid;
+    border: 2px #0055AA solid;
     display: table-cell;
     text-align: center;
-    font-size: 400%;
-}
-
-div.operator {
-    width: 20%;
-    height: 30%;
     font-size: 400%;
 }
 
@@ -103,10 +97,11 @@ div.operatorrow {
 }
 
 div.operator {
-    /*width: 10%;*/
+    width: 20%;
     height: 30%;
-    background: #0099FF;
-    border: 2px #0077CC solid;
+    font-size: 400%;
+    background: #CC4411;
+    border: 2px #774400 solid;
     text-align: center;
     display: table-cell;
 }
@@ -132,7 +127,7 @@ div.operator {
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 470px) {
     div.operatortable {
 	width: 40%;
     }
@@ -147,9 +142,9 @@ div.operator {
     }    
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 340px) {
     div.operatortable {
-	font-size: 35%;
+	font-size: 65%;
     }
 
     div#warning {

@@ -178,6 +178,11 @@ popclick = function() {
 }
 
 enterclick = function() {
+    if (current_num === "")
+    {
+	return;
+    }
+    
     var display = document.getElementById("display");
     // base_display = display.innerHTML;
     
