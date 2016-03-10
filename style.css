@@ -10,6 +10,7 @@ html {
 body {
     height: 100%;
     width: 100%;
+    z-index: 1;
 }
 
 p {
@@ -30,6 +31,19 @@ div#display {
     font-size: 400%;
     text-align: right;
     overflow-y: auto;
+    z-index: 1;
+    position: relative;
+}
+
+div#warning {
+    height: 15%;
+    width: 900px;
+    font-size: 400%;
+    opacity: 0.8;
+    background: #DD5533;
+    z-index: 2;
+    position: fixed;
+    float: left;
 }
 
 div.num {
@@ -105,17 +119,31 @@ div.operator {
 
 @media only screen and (max-width: 900px) {
     div#display {
-	width: 99%;
+	width: 95%;
+    }
+
+    div#warning {
+	width:95%;
+	font-size: 300%;
     }
 
     div.maintable {
-	width: 99%;
+	width: 95%;
     }
 }
 
 @media only screen and (max-width: 450px) {
     div.operatortable {
 	width: 40%;
+    }
+    
+    div#warning {
+	height: 10%;
+	font-size: 200%;
+    }
+
+    div#display {
+	font-size: 200%;
     }
     
     div.buttontable {
@@ -128,6 +156,14 @@ div.operator {
 	font-size: 70%;
     }
 
+    div#warning {
+	font-size: 150%;
+    }
+
+    div#display {
+	font-size: 150%;
+    }
+    
     div.buttontable {
 	font-size: 70%;
     }

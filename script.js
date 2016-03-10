@@ -1,10 +1,11 @@
 /*
-Nicholas Meyer
+Nicholas Meyer, 2016
 */
 
 var current_num = "";  // stores the current number as a string
                        // and converts to a number as necessary
 var base_display = ""; // stores display values from the past
+var warning_str = "";
 
 update_screen = function() {
     display = document.getElementById("display");
@@ -18,44 +19,44 @@ update_screen = function() {
 }
 
 buttonclick = function(num) {
-    // handle the case where current_num is negative or zero
-    //sign = (current_num === 0)? 1:current_num / Math.abs(current_num);
-    //current_num *= sign; // current_num is now guaranteed to be nonnegative
-    
-    /*if (!decimalmode)
-    {
-	// string conversion and then conversion back to number
-	current_num = current_num + num;
-    }
-    else
-    {
-	decimalplaces += 1;
-	// string conversion and then conversion back to number
-	current_num = parseFloat();
-	}*/
     current_num += num;
 
-    //current_num *= sign;
     update_screen();
 }
 
-backspaceclick = function() {
-    // handle the case where current_num is negative or zero
-    /*sign = (current_num === 0)? 1:current_num / Math.abs(current_num);
-    current_num *= sign; // current_num is now guaranteed to be nonnegative
-    if (!decimal_mode)
-    {
-	current_num = Math.floor(current_num / 10);
-	update_screen();
-    }
-    else
-    {
-	current_num = 0;
-	update_screen();
-    }*/
-    //current_num *= sign;
+warn = function(message, time) {
+    display_warning(message);
+    setTimeout(remove_warning, time);
+}
 
-    // since current_num is stored as a string, just truncate the string
+display_warning = function(message) {
+    warning_str = '<div id="warning">' + message + '</div>';
+    show_warning_div(warning_str);
+}
+
+remove_warning = function() {
+    warning_str = "";
+    remove_warning_div();
+}
+
+var originalBody = "";
+
+show_warning_div = function(message) {
+    if (originalBody === "")
+    {
+	originalBody = document.body.innerHTML;
+    }
+    document.body.innerHTML = message + originalBody;
+    //document.getElementById("warningwrapper").innerHTML = message;
+}
+
+remove_warning_div = function(message) {
+    //document.getElementById("warningwrapper").innerHTML = "";
+    document.body.innerHTML = originalBody;
+    originalBody = "";
+}
+
+backspaceclick = function() {
     current_num = current_num.substring(0, current_num.length - 1);
     update_screen();
 }
@@ -74,25 +75,44 @@ operatorclick = function(str) {
     }
     else
     {
+	// Note: this code block never actually runs since
+	// by default NaN will be pushed if no input was entered
+	
 	// Alert user to the error
+	warn("Error: insufficient stack", 2000);
+	return;
     }
+    if (!Number.isFinite(num1))
+    {
+	// Alert user to the error
+	warn("Error: insufficient stack", 2000);
+	return;
+    }
+    
     if (str === "log")
     {
-	ans = Math.log(num1);
-	console.log("log");
+	if (num1 <= 0)
+	{
+	    warn("Error: argument must be positive", 2000);
+	    return;
+	}
+	else
+	{
+	    ans = Math.log(num1);
+	}
     }
     else
     {
 	// every operator other than log is binary
 	if (!empty())
 	{
-	    console.log("not empty");
 	    var num2 = pop();
 	}
 	else
 	{
-	    console.log("empty");
 	    // Alert user to the error
+	    warn("Error: insufficient stack", 2000);
+	    return;
 	}
 	switch(str)
 	{
@@ -106,6 +126,11 @@ operatorclick = function(str) {
 	    ans = num1 * num2;
 	    break;
 	    case '÷':
+	    if (num2 == 0)
+	    {
+		warn("Error: cannot divide by zero", 2000);
+		return;
+	    }
 	    ans = num1 / num2;
 	    break;
 	    case 'pow':
@@ -114,9 +139,6 @@ operatorclick = function(str) {
 	    default:
 	}
     }
-    console.log(num1);
-    console.log(num2);
-    console.log(ans);
     base_display = get_text();
     current_num = ans + "";
     update_screen();
@@ -149,7 +171,7 @@ enterclick = function() {
     display.scrollTop = display.scrollHeight;
     // Push the current number onto the stack
     push(parseFloat(current_num));
-    current_num = 0;
+    current_num = "";
 
     // decimal mode will be false
     decimalmode = false;
