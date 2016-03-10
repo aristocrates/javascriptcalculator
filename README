@@ -5,3 +5,15 @@ Author: Nicholas Meyer
 
 A reverse polish notation calculator written in javascript.
 Uses responsive css to adapt the app size to any device.
+
+Features:
+---------
+ * Should display well on any device (assuming reasonably current browsers)
+ * Touch optimized on most mobile devices
+ * Keyboard input on supported browsers
+
+Known issues:
+-------------
+ * Decimal display can be problematic on mobile-sized browsers
+ * Error messages don't always display cleanly when users cause another error
+   message before the first is dismissed
