@@ -3,4 +3,5 @@ javascriptcalculator
 
 Author: Nicholas Meyer
 
-A reverse polish notation calculator written in javascript
+A reverse polish notation calculator written in javascript.
+Uses responsive css to adapt the app size to any device.
